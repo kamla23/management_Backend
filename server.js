@@ -7,7 +7,6 @@ import studentRouter from './routes/routes.js';
 import Student from './model/model.js';
 
 const app = express();
-const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -41,9 +40,11 @@ app.delete('/api/students', async (req, res) => {
   }
 });
 
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Server Started at PORT :${PORT}`)
-})
+    console.log(`Server Started at PORT :${PORT}`);
+});
+
 export default app;
 
 
